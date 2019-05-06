@@ -52,15 +52,15 @@ export const ContentContainer = styled.div`
   height: ${props => (props.horizontal ? `50px` : `200px`)};
   border-radius: ${props => props.borderRadius || "8px"};
   width: ${props => (props.horizontal ? `100%` : `40%`)};
-  background: linear-gradient(
+  /* background: linear-gradient(
     to ${props => (props.horizontal ? `left` : `bottom`)},
-    ${props => props.gradientColor || "grey"},
-    grey 50%
-  );
-  box-shadow: 0px -2px 8px #0000003d;
+    ${props => props.gradientColor || props.theme.backgroundColor},
+    ${props => props.theme.backgroundColor} 50%
+  ); */
   transform: ${props =>
     props.horizontal ? `translateX(-100%)` : `translateY(100%)`};
-  background-color: grey;
+  box-shadow: 0px -2px 8px ${props => props.theme.shadowColor};
+  background-color: ${props => props.theme.backgroundColor};
   position: relative;
   overflow: hidden;
   padding: 10px;
@@ -68,7 +68,7 @@ export const ContentContainer = styled.div`
   margin: ${props => (props.horizontal ? `10px auto 10px 0` : `auto`)};
 
   animation: ${props =>
-      props.horizontal ? `containerSlideInHorizontal` : `containerSlideIn`}
+    props.horizontal ? `containerSlideInHorizontal` : `containerSlideIn`}
     0.8s ease-out 0.2s 1 forwards;
   animation-delay: ${props => props.index * 0.2 + 1}s;
 
@@ -101,20 +101,22 @@ export const ContentContainer = styled.div`
 `;
 
 export const Shadow = styled.div`
+  box-shadow: ${props =>
+    props.horizontal
+      ? `2px 0 2px ${props => props.theme.shadowColor}`
+      : `0 -2px 2px ${props => props.theme.shadowColor}`};
   height: ${props => (props.horizontal ? `100%` : `10px`)};
   width: ${props => (props.horizontal ? `10px` : `95%`)};
   left: ${props => (props.horizontal ? `10px` : `2.5%`)};
-  box-shadow: ${props =>
-    props.horizontal ? `2px 0 2px #0000002e` : `0 -2px 2px #0000002e`};
   position: absolute;
   border-radius: 50%;
   bottom: 0;
 
   ::before {
-    height: ${props => (props.horizontal ? `100%` : `10px`)};
-    width: ${props => (props.horizontal ? `10px` : `100%`)};
     box-shadow: ${props =>
       props.horizontal ? `5px 0 5px #00000042` : `0 -5px 5px #00000042`};
+    height: ${props => (props.horizontal ? `100%` : `10px`)};
+    width: ${props => (props.horizontal ? `10px` : `100%`)};
     display: inline-block;
     border-radius: 50%;
     position: absolute;
@@ -123,9 +125,9 @@ export const Shadow = styled.div`
 `;
 
 export const Overlay = styled.div`
+  background-color: ${props => props.theme.backgroundColor};
   height: ${props => (props.horizontal ? `100%` : `10px`)};
   width: ${props => (props.horizontal ? `20px` : `100%`)};
-  background-color: grey;
   position: absolute;
   bottom: 0;
   left: 0;
