@@ -1,30 +1,30 @@
 import React from "react";
-import { createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "styled-components";
 
-const GlobalStyles = createGlobalStyle`
-  html {
-    font-family: Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    box-sizing: border-box;
-    min-height: 100vh;
-  }
-  body {
-    margin: auto;
-  }
-  *, *::before, *::after {
-    box-sizing: inherit;
-  }
-`;
+import Pocket from "../Pocket";
+
+import { defaultTheme, GlobalStyles } from "./styles";
 
 function App() {
   return (
-    <div>
-      <GlobalStyles />
+    <ThemeProvider theme={defaultTheme}>
+      <>
+        <GlobalStyles />
 
-      <h1>App...</h1>
-    </div>
+        <h1>App...</h1>
+
+        <Pocket
+          content={[
+            <p>
+              Note that if you don't actually want to change its position on the
+              x/y plane, then just specify that it is.Note that if you don't
+              actually want to change its position on the x/y plane, then just
+              specify that it is.
+            </p>,
+          ]}
+        />
+      </>
+    </ThemeProvider>
   );
 }
 
