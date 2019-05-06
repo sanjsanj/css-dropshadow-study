@@ -6,13 +6,14 @@ export default function Pocket(props) {
   const { content } = props;
 
   return (
-    <PocketWrapper>
-      <Shadow />
+    <PocketWrapper horizontal={props.horizontal}>
+      <Shadow horizontal={props.horizontal} />
 
       {content.map((container, index) => (
         <ContentContainer
           gradientColor={container.linearGradientColor}
           borderRadius={props.borderRadius}
+          horizontal={props.horizontal}
           index={index}
           key={index}
         >
@@ -20,7 +21,7 @@ export default function Pocket(props) {
         </ContentContainer>
       ))}
 
-      <Overlay />
+      <Overlay horizontal={props.horizontal} />
     </PocketWrapper>
   );
 }

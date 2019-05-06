@@ -1,17 +1,20 @@
 import styled from "styled-components";
 
 export const PocketWrapper = styled.div`
+  padding: ${props => (props.horizontal ? `10px 5% 10px 0` : `10px 5% 0`)};
+  flex-direction: ${props => (props.horizontal ? `column` : `row`)};
   justify-content: space-evenly;
   position: relative;
-  padding: 10px 5% 0;
   padding-top: 10px;
   overflow: hidden;
   margin: 0 auto;
   display: flex;
 
-  animation: pocketSlide 1s ease-in-out 0s 1 forwards;
+  animation: ${props =>
+      props.horizontal ? `pocketSlideInHorizontal` : `pocketSlideIn`}
+    1s ease-in-out 0s 1 forwards;
 
-  @keyframes pocketSlide {
+  @keyframes pocketSlideIn {
     0% {
       opacity: 0;
       width: 0%;
@@ -21,27 +24,55 @@ export const PocketWrapper = styled.div`
       width: 100%;
     }
   }
+
+  @keyframes pocketSlideInHorizontal {
+    0% {
+      opacity: 0;
+      height: 0%;
+    }
+    100% {
+      opacity: 1;
+      height: 100%;
+    }
+  }
+
+  @keyframes pocketSlideOut {
+    0% {
+      opacity: 1;
+      width: 100%;
+    }
+    100% {
+      opacity: 0;
+      width: 0%;
+    }
+  }
 `;
 
 export const ContentContainer = styled.div`
+  height: ${props => (props.horizontal ? `50px` : `200px`)};
   border-radius: ${props => props.borderRadius || "8px"};
+  width: ${props => (props.horizontal ? `100%` : `40%`)};
   background: linear-gradient(
-    to bottom,
+    to ${props => (props.horizontal ? `left` : `bottom`)},
     ${props => props.gradientColor || "grey"},
     grey 50%
   );
   box-shadow: 0px -2px 8px #0000003d;
-  transform: translateY(100%);
+  transform: ${props =>
+    props.horizontal ? `translateX(-100%)` : `translateY(100%)`};
   background-color: grey;
   position: relative;
+  overflow: hidden;
   padding: 10px;
-  height: 200px;
-  width: 40%;
 
-  animation: containerSlide 0.8s ease-out 0.2s 1 forwards;
+  margin: ${props => (props.horizontal ? `10px auto 10px 0` : `auto`)};
+
+  animation: ${props =>
+      props.horizontal ? `containerSlideInHorizontal` : `containerSlideIn`}
+    0.8s ease-out 0.2s 1 forwards;
   animation-delay: ${props => props.index * 0.2 + 1}s;
 
-  @keyframes containerSlide {
+  @keyframes containerSlideIn {
     0% {
       transform: translateY(100%);
     }
@@ -49,32 +80,53 @@ export const ContentContainer = styled.div`
       transform: translateY(0);
     }
   }
+
+  @keyframes containerSlideInHorizontal {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes containerSlideOut {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
 `;
 
 export const Shadow = styled.div`
-  box-shadow: 0px -2px 2px #0000002e;
+  height: ${props => (props.horizontal ? `100%` : `10px`)};
+  width: ${props => (props.horizontal ? `10px` : `95%`)};
+  left: ${props => (props.horizontal ? `10px` : `2.5%`)};
+  box-shadow: ${props =>
+    props.horizontal ? `2px 0 2px #0000002e` : `0 -2px 2px #0000002e`};
   position: absolute;
   border-radius: 50%;
-  height: 10px;
-  left: 2.5%;
-  width: 95%;
   bottom: 0;
 
   ::before {
-    box-shadow: 0px -5px 5px #00000042;
+    height: ${props => (props.horizontal ? `100%` : `10px`)};
+    width: ${props => (props.horizontal ? `10px` : `100%`)};
+    box-shadow: ${props =>
+      props.horizontal ? `5px 0 5px #00000042` : `0 -5px 5px #00000042`};
     display: inline-block;
     border-radius: 50%;
     position: absolute;
-    height: 10px;
     content: "";
-    width: 100%;
   }
 `;
 
 export const Overlay = styled.div`
+  height: ${props => (props.horizontal ? `100%` : `10px`)};
+  width: ${props => (props.horizontal ? `20px` : `100%`)};
   background-color: grey;
   position: absolute;
-  height: 10px;
-  width: 100%;
   bottom: 0;
+  left: 0;
 `;

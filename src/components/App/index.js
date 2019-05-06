@@ -55,6 +55,35 @@ function App() {
             },
           ]}
         />
+
+        <Pocket
+          borderRadius={"6px"}
+          horizontal={true}
+          content={[
+            {
+              linearGradientColor: "#00ffff1c",
+              html: (
+                <p>
+                  Note that if you don't actually want to change its position on
+                  the x/y plane, then just specify that it is.Note that if you
+                  don't actually want to change its position on the x/y plane,
+                  then just specify that it is.
+                </p>
+              ),
+            },
+            {
+              linearGradientColor: "#ff76001c",
+              html: (
+                <p>
+                  Note that if you don't actually want to change its position on
+                  the x/y plane, then just specify that it is.Note that if you
+                  don't actually want to change its position on the x/y plane,
+                  then just specify that it is.
+                </p>
+              ),
+            },
+          ]}
+        />
       </>
     </ThemeProvider>
   );
