@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     box-sizing: border-box;
     min-height: 100vh;
+    color: white;
   }
   body {
     margin: auto;

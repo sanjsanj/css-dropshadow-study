@@ -10,7 +10,13 @@ export default function Pocket(props) {
       <Shadow />
 
       {content.map((container, index) => (
-        <Container key={index}>{container}</Container>
+        <Container
+          gradientColor={container.linearGradientColor}
+          borderRadius={props.borderRadius}
+          key={index}
+        >
+          {container.html}
+        </Container>
       ))}
 
       <Overlay />

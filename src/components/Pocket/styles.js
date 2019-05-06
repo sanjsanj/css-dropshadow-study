@@ -4,18 +4,23 @@ export const Wrapper = styled.div`
   justify-content: space-evenly;
   overflow-y: hidden;
   position: relative;
+  padding: 10px 5% 0;
   padding-top: 10px;
-  padding: 0 5%;
   display: flex;
 `;
 
 export const Container = styled.div`
+  border-radius: ${props => props.borderRadius || "8px"};
+  background: linear-gradient(
+    to bottom,
+    ${props => props.gradientColor || "grey"},
+    grey 50%
+  );
   box-shadow: 0px -2px 8px #0000003d;
   transition: all 0.7s ease-in-out;
   transform: translateY(100%);
-  transform: translateY(2px);
+  transform: translateY(0px);
   background-color: grey;
-  border-radius: 2px;
   padding: 10px;
   height: 200px;
   width: 40%;
