@@ -4,6 +4,7 @@ export const PocketWrapper = styled.div`
   padding: ${props => (props.horizontal ? `10px 5% 10px 0` : `10px 5% 0`)};
   flex-direction: ${props => (props.horizontal ? `column` : `row`)};
   justify-content: space-evenly;
+  align-items: flex-end;
   position: relative;
   padding-top: 10px;
   overflow: hidden;
@@ -49,23 +50,26 @@ export const PocketWrapper = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-  height: ${props => (props.horizontal ? `50px` : `200px`)};
+  height: ${props =>
+    props.horizontal ? `50px` : `calc(${props.growth} * 200px)`};
   border-radius: ${props => props.borderRadius || "8px"};
   width: ${props => (props.horizontal ? `100%` : `40%`)};
   /* background: linear-gradient(
     to ${props => (props.horizontal ? `left` : `bottom`)},
-    ${props => props.gradientColor || props.theme.backgroundColor},
+    ${props => props.color || props.theme.backgroundColor},
     ${props => props.theme.backgroundColor} 50%
   ); */
   transform: ${props =>
     props.horizontal ? `translateX(-100%)` : `translateY(100%)`};
   box-shadow: 0px -2px 8px ${props => props.theme.shadowColor};
+  /* background-color: ${props =>
+    props.color || props.theme.backgroundColor}; */
   background-color: ${props => props.theme.backgroundColor};
   position: relative;
   overflow: hidden;
   padding: 10px;
 
-  margin: ${props => (props.horizontal ? `10px auto 10px 0` : `auto`)};
+  margin: ${props => (props.horizontal ? `10px auto 10px 0` : `0 5px`)};
 
   animation: ${props =>
     props.horizontal ? `containerSlideInHorizontal` : `containerSlideIn`}
@@ -74,10 +78,10 @@ export const ContentContainer = styled.div`
 
   @keyframes containerSlideIn {
     0% {
-      transform: translateY(100%);
+      transform: translate(200%, 100%);
     }
     100% {
-      transform: translateY(0);
+      transform: translate(0, 0);
     }
   }
 
@@ -92,10 +96,10 @@ export const ContentContainer = styled.div`
 
   @keyframes containerSlideOut {
     0% {
-      transform: translateY(0);
+      transform: translate(0, 0);
     }
     100% {
-      transform: translateY(100%);
+      transform: translate(200%, 100%);
     }
   }
 `;

@@ -32,7 +32,7 @@ function App() {
           borderRadius={"6px"}
           content={[
             {
-              linearGradientColor: "#13c74d80",
+              color: "#13c74d80",
               html: (
                 <p>
                   Note that if you don't actually want to change its position on
@@ -43,7 +43,7 @@ function App() {
               ),
             },
             {
-              linearGradientColor: "#e8232380",
+              color: "#e8232380",
               html: (
                 <p>
                   Note that if you don't actually want to change its position on
@@ -57,11 +57,11 @@ function App() {
         />
 
         <Pocket
-          horizontal={true}
+          // horizontal={true}
           content={[
             {
-              linearGradientColor: "#13c74d80",
-              growth: "80%",
+              color: "yellow",
+              growth: "0.40",
               html: (
                 <p>
                   Note that if you don't actually want to change its position on
@@ -72,8 +72,8 @@ function App() {
               ),
             },
             {
-              linearGradientColor: "#e8232380",
-              growth: "60%",
+              color: "orange",
+              growth: "0.60",
               html: (
                 <p>
                   Note that if you don't actually want to change its position on
@@ -84,8 +84,8 @@ function App() {
               ),
             },
             {
-              linearGradientColor: "#0000ff80",
-              growth: "40%",
+              color: "red",
+              growth: "0.80",
               html: (
                 <p>
                   Note that if you don't actually want to change its position on
@@ -96,8 +96,20 @@ function App() {
               ),
             },
             {
-              linearGradientColor: "#ffa60080",
-              growth: "",
+              color: "orange",
+              growth: "0.55",
+              html: (
+                <p>
+                  Note that if you don't actually want to change its position on
+                  the x/y plane, then just specify that it is.Note that if you
+                  don't actually want to change its position on the x/y plane,
+                  then just specify that it is.
+                </p>
+              ),
+            },
+            {
+              color: "yellow",
+              growth: "0.35",
               html: (
                 <p>
                   Note that if you don't actually want to change its position on

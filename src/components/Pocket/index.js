@@ -11,9 +11,10 @@ export default function Pocket(props) {
 
       {content.map((container, index) => (
         <ContentContainer
-          gradientColor={container.linearGradientColor}
           borderRadius={props.borderRadius}
+          growth={container.growth || 1}
           horizontal={props.horizontal}
+          color={container.color}
           index={index}
           key={index}
         >
