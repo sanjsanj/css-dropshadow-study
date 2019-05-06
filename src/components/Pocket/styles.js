@@ -1,15 +1,29 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const PocketWrapper = styled.div`
   justify-content: space-evenly;
-  overflow-y: hidden;
   position: relative;
   padding: 10px 5% 0;
   padding-top: 10px;
+  overflow: hidden;
+  margin: 0 auto;
   display: flex;
+
+  animation: pocketSlide 1s ease-in-out 0s 1 forwards;
+
+  @keyframes pocketSlide {
+    0% {
+      opacity: 0;
+      width: 0%;
+    }
+    100% {
+      opacity: 1;
+      width: 100%;
+    }
+  }
 `;
 
-export const Container = styled.div`
+export const ContentContainer = styled.div`
   border-radius: ${props => props.borderRadius || "8px"};
   background: linear-gradient(
     to bottom,
@@ -17,13 +31,24 @@ export const Container = styled.div`
     grey 50%
   );
   box-shadow: 0px -2px 8px #0000003d;
-  transition: all 0.7s ease-in-out;
   transform: translateY(100%);
-  transform: translateY(0px);
   background-color: grey;
+  position: relative;
   padding: 10px;
   height: 200px;
   width: 40%;
+
+  animation: containerSlide 0.8s ease-out 0.2s 1 forwards;
+  animation-delay: ${props => props.index * 0.2 + 1}s;
+
+  @keyframes containerSlide {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 `;
 
 export const Shadow = styled.div`
