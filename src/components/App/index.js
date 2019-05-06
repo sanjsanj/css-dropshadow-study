@@ -23,6 +23,46 @@ function App() {
             </p>,
           ]}
         />
+
+        <Pocket
+          content={[
+            <p>
+              Note that if you don't actually want to change its position on the
+              x/y plane, then just specify that it is.Note that if you don't
+              actually want to change its position on the x/y plane, then just
+              specify that it is.
+            </p>,
+            <p>
+              Note that if you don't actually want to change its position on the
+              x/y plane, then just specify that it is.Note that if you don't
+              actually want to change its position on the x/y plane, then just
+              specify that it is.
+            </p>,
+          ]}
+        />
+
+        <Pocket
+          content={[
+            <p>
+              Note that if you don't actually want to change its position on the
+              x/y plane, then just specify that it is.Note that if you don't
+              actually want to change its position on the x/y plane, then just
+              specify that it is.
+            </p>,
+            <p>
+              Note that if you don't actually want to change its position on the
+              x/y plane, then just specify that it is.Note that if you don't
+              actually want to change its position on the x/y plane, then just
+              specify that it is.
+            </p>,
+            <p>
+              Note that if you don't actually want to change its position on the
+              x/y plane, then just specify that it is.Note that if you don't
+              actually want to change its position on the x/y plane, then just
+              specify that it is.
+            </p>,
+          ]}
+        />
       </>
     </ThemeProvider>
   );
