@@ -13,7 +13,7 @@ export const PocketWrapper = styled.div`
 
   animation: ${props =>
       props.horizontal ? `pocketSlideInHorizontal` : `pocketSlideIn`}
-    1s ease-in-out 0s 1 forwards;
+    1s cubic-bezier(0.22, 0.61, 0.36, 1) 0s 1 forwards;
 
   @keyframes pocketSlideIn {
     0% {
@@ -73,8 +73,8 @@ export const ContentContainer = styled.div`
 
   animation: ${props =>
     props.horizontal ? `containerSlideInHorizontal` : `containerSlideIn`}
-    0.8s ease-out 0.2s 1 forwards;
-  animation-delay: ${props => props.index * 0.2 + 1}s;
+    0.8s cubic-bezier(0, 0, 0.15, 1) 0.2s 1 forwards;
+  animation-delay: ${props => props.index * 0.2 + 0.5}s;
 
   @keyframes containerSlideIn {
     0% {
